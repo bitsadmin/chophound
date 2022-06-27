@@ -1,5 +1,5 @@
 # ChopHound
-Some scripts for dealing with any challenges that might arise when importing (large) JSON datasets into BloodHound. The blog which discusses these scripts can be found at [https://blog.bitsadmin.com/dealing-with-large-bloodhound-datasets](https://blog.bitsadmin.com/dealing-with-large-bloodhound-datasets).
+Some scripts for dealing with any challenges that might arise when importing (large) JSON datasets into BloodHound. The blog which discusses these scripts can be found at [https://blog.bitsadmin.com/blog/dealing-with-large-bloodhound-datasets](https://blog.bitsadmin.com/blog/dealing-with-large-bloodhound-datasets).
 
 ## Scripts
 | Name | Description |
