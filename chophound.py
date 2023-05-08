@@ -24,8 +24,12 @@ def main(args):
         # Obtain meta tag
         js.seek(-0x100, os.SEEK_END)
         lastbytes = str(js.read(0x100))
-        metatagstr = re.search('("meta":(\s+)?{.*})}', lastbytes, re.MULTILINE | re.IGNORECASE).group(1)
-        metatag = json.loads('{' + metatagstr + '}')
+        if args.verbose:
+            print(f"lastbytes: {lastbytes}")
+        metatagstr = re.search('("meta":(\s+)?{.*})', lastbytes, re.IGNORECASE).group(1).replace('\\n',"")
+        if args.verbose:
+            print(metatagstr)
+        metatag = json.loads('{' + metatagstr)
 
     # Open in text mode to parse
     with open(file, 'r', encoding='utf-8-sig', errors='replace') as js:
@@ -69,6 +73,7 @@ def getargs():
     )
     parser.add_argument('file', help='JSON file to split')
     parser.add_argument('-c', '--chunksize', default=500, type=int, dest='chunksize', help='Number of items per outputted chunk')
+    parser.add_argument('-v', '--verbose', action=argparse.BooleanOptionalAction, help='Show verbose output')
 
     return parser.parse_args()
 
