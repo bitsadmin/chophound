@@ -72,7 +72,7 @@ def getargs():
         description='Convert large BloodHound json to smaller chunks'
     )
     parser.add_argument('file', help='JSON file to split')
-    parser.add_argument('-c', '--chunksize', default=500, type=int, dest='chunksize', help='Number of items per outputted chunk')
+    parser.add_argument('-c', '--chunksize', default=10000, type=int, dest='chunksize', help='Number of items per outputted chunk')
     parser.add_argument('-v', '--verbose', action=argparse.BooleanOptionalAction, help='Show verbose output')
 
     return parser.parse_args()
